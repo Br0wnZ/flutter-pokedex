@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/models/pokemon_llist_response_model.dart';
 import 'package:my_app/services/pokedex_service.dart';
 
 class HomePage extends StatelessWidget {
@@ -14,14 +15,19 @@ class HomePage extends StatelessWidget {
       future: PokedexService().getPokemonsList(),
       initialData: const [],
       builder: (BuildContext context, AsyncSnapshot snapshot) {
-        List<dynamic> pokemons = snapshot.data['results'];
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+        List<Pokemon> pokemons = snapshot.data;
         return ListView.builder(
           itemCount: pokemons.length,
           itemBuilder: (BuildContext context, int index) {
             return ListTile(
               title: Text(
                 _capitalizeString(
-                  pokemons[index]['name'],
+                  pokemons[index].name!,
                 ),
               ),
             );
