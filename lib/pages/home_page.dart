@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/models/pokemon_llist_response_model.dart';
+import 'package:my_app/pages/pokemon_details_page.dart';
 import 'package:my_app/services/pokedex_service.dart';
 
 class HomePage extends StatelessWidget {
@@ -24,10 +25,21 @@ class HomePage extends StatelessWidget {
         return ListView.builder(
           itemCount: pokemons.length,
           itemBuilder: (BuildContext context, int index) {
-            return ListTile(
-              title: Text(
-                _capitalizeString(
-                  pokemons[index].name!,
+            return GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => PokemonDetailsPage(
+                      name: pokemons[index].name!,
+                    ),
+                  ),
+                );
+              },
+              child: ListTile(
+                title: Text(
+                  _capitalizeString(
+                    pokemons[index].name!,
+                  ),
                 ),
               ),
             );
