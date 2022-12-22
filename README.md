@@ -1,10 +1,10 @@
 # Flutter Pokedex
 
-[![Awesome Flutter](https://img.shields.io/badge/Awesome-Flutter-blue.svg)](https://github.com/Solido/awesome-flutter)(https://codemagic.io/apps/5d3727997dee22001bb7681c/5d3727997dee22001bb7681b/latest_build)
+Pokedex app built with Flutter
+
+[![Awesome Flutter](https://img.shields.io/badge/Awesome-Flutter-blue.svg)](https://github.com/Solido/awesome-flutter)
 [![License](https://img.shields.io/badge/License-Apache%202.0-red.svg)](LICENSE)
 [![License](https://img.shields.io/badge/License-MIT-red.svg)](LICENSE)
-
-Pokedex app built with Flutter
 
 ## Installation
 
@@ -17,3 +17,6 @@ Pokedex app built with Flutter
 ## License
 
 All the code available under the MIT + Apache 2.0. licenses. See [LICENSE](LICENSE).
+
+## Authors
+[Javier Moreno](http://javimoreno.epizy.com/#/)
