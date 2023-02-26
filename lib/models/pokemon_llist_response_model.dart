@@ -33,18 +33,21 @@ class PokemonListResponse {
 class Pokemon {
   String? name;
   String? url;
+  String? image;
 
-  Pokemon({this.name, this.url});
+  Pokemon({this.name, this.url, this.image});
 
   Pokemon.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     url = json['url'];
+    image = json['image'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['name'] = name;
     data['url'] = url;
+    data['image'] = image;
     return data;
   }
 }

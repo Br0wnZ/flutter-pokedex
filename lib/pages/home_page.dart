@@ -2,13 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:my_app/models/pokemon_llist_response_model.dart';
 import 'package:my_app/pages/pokemon_details_page.dart';
 import 'package:my_app/services/pokedex_service.dart';
+import 'package:my_app/widgets/pokemon_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-
-  String _capitalizeString(String text) {
-    return text[0].toUpperCase() + text.substring(1).toLowerCase();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,27 +19,24 @@ class HomePage extends StatelessWidget {
           );
         }
         List<Pokemon> pokemons = snapshot.data;
-        return ListView.builder(
+        return GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 3 / 4,
+          ),
           itemCount: pokemons.length,
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => PokemonDetailsPage(
-                      name: pokemons[index].name!,
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => PokemonDetailsPage(
+                        name: pokemons[index].name!,
+                      ),
                     ),
-                  ),
-                );
-              },
-              child: ListTile(
-                title: Text(
-                  _capitalizeString(
-                    pokemons[index].name!,
-                  ),
-                ),
-              ),
-            );
+                  );
+                },
+                child: PokemonCard(pokemons[index]));
           },
         );
       },

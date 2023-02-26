@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class PokemonDetails {
   List<Abilities>? abilities;
   int? baseExperience;
@@ -17,26 +19,28 @@ class PokemonDetails {
   List<Stats>? stats;
   List<Types>? types;
   int? weight;
+  Color? bgColor;
 
-  PokemonDetails(
-      {this.abilities,
-      this.baseExperience,
-      this.forms,
-      this.gameIndices,
-      this.height,
-      this.heldItems,
-      this.id,
-      this.isDefault,
-      this.locationAreaEncounters,
-      this.moves,
-      this.name,
-      this.order,
-      this.pastTypes,
-      this.species,
-      this.sprites,
-      this.stats,
-      this.types,
-      this.weight});
+  PokemonDetails({
+    this.abilities,
+    this.baseExperience,
+    this.forms,
+    this.gameIndices,
+    this.height,
+    this.heldItems,
+    this.id,
+    this.isDefault,
+    this.locationAreaEncounters,
+    this.moves,
+    this.name,
+    this.order,
+    this.pastTypes,
+    this.species,
+    this.sprites,
+    this.stats,
+    this.types,
+    this.weight,
+  });
 
   PokemonDetails.fromJson(Map<String, dynamic> json) {
     if (json['abilities'] != null) {
